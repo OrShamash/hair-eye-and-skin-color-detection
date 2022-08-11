@@ -8,13 +8,10 @@ class Normalized:
         the_mean_of_AVG_of_AVG_normalized_R = np.mean(avg_of_avg_normalized_R)            
         the_mean_of_AVG_of_AVG_normalized_G = np.mean(avg_of_avg_normalized_G)            
         the_mean_of_AVG_of_AVG_normalized_B = np.mean(avg_of_avg_normalized_B) 
-        print(the_mean_of_AVG_of_AVG_normalized_R, the_mean_of_AVG_of_AVG_normalized_G, the_mean_of_AVG_of_AVG_normalized_B)
     
         the_std_of_AVG_of_AVG_normalized_R = np.std(avg_of_avg_normalized_R)
         the_std_of_AVG_of_AVG_normalized_G = np.std(avg_of_avg_normalized_G)
         the_std_of_AVG_of_AVG_normalized_B = np.std(avg_of_avg_normalized_B)
-        
-        print(the_std_of_AVG_of_AVG_normalized_R, the_std_of_AVG_of_AVG_normalized_G, the_std_of_AVG_of_AVG_normalized_B)
         
         return the_mean_of_AVG_of_AVG_normalized_R ,the_mean_of_AVG_of_AVG_normalized_G ,the_mean_of_AVG_of_AVG_normalized_B ,the_std_of_AVG_of_AVG_normalized_R, the_std_of_AVG_of_AVG_normalized_G, the_std_of_AVG_of_AVG_normalized_B
 

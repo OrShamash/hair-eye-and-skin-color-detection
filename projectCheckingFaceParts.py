@@ -14,7 +14,6 @@ from normalized import Normalized
 class FacePartsChecking:
     
     def facePartsChecking(self, the_mean_of_AVG_of_AVG_normalized_R_white ,the_mean_of_AVG_of_AVG_normalized_G_white ,the_mean_of_AVG_of_AVG_normalized_B_white ,the_std_of_AVG_of_AVG_normalized_R_white, the_std_of_AVG_of_AVG_normalized_G_white, the_std_of_AVG_of_AVG_normalized_B_white, the_mean_of_AVG_of_AVG_normalized_R_black ,the_mean_of_AVG_of_AVG_normalized_G_black ,the_mean_of_AVG_of_AVG_normalized_B_black ,the_std_of_AVG_of_AVG_normalized_R_black, the_std_of_AVG_of_AVG_normalized_G_black, the_std_of_AVG_of_AVG_normalized_B_black, image_after_change, i):
-    #def facePartsChecking(self, image_after_change):
 
         mp_drawing = mp.solutions.drawing_utils
         mp_drawing_styles = mp.solutions.drawing_styles
@@ -62,8 +61,7 @@ class FacePartsChecking:
                 rightIrisEyeNumberOfPointsList = [rightIrisPoints]
                 leftIrisEyeNumberOfPointsList = [leftIrisPoints]
                 
-                
-                
+
                 XandYright = XandYCoordinatesAndPoints()
                 listRight = XandYright.valuesOfXandYPoints(face_landmarks, rightIrisEyeNumberOfPointsList, new_image)
                 right_eye_color = EyesColor()
@@ -73,41 +71,29 @@ class FacePartsChecking:
                 listLeft = XandYleft.valuesOfXandYPoints(face_landmarks, leftIrisEyeNumberOfPointsList, new_image)
                 left_eye_color = EyesColor()
                 color_of_left_eye = left_eye_color.leftEyeColor(listLeft, im_pil)            
-                
-                
+
 
                 XandYskin = XandYCoordinatesAndPoints()
                 listSkin = XandYskin.valuesOfXandYPoints(face_landmarks, faceNumberOfPointsList, new_image)
                 skin_color = SkinColor()
-                
-                #########for using normalization uncomment row 99,105 and comment row 100#########
-                
-                #avg_R, avg_G, avg_B = skin_color.avgSkinColor(listSkin, im_pil)
-                normal_R, normal_G, normal_B = skin_color.avgSkinColor(listSkin, im_pil)
-                #Color = Normalized()
 
-                #normal_R, normal_G, normal_B = Color.normalized(avg_R, avg_G, avg_B)
+                normal_R, normal_G, normal_B = skin_color.avgSkinColor(listSkin, im_pil)
+
                 sqrt = Normalized()
                 size_of_sqrt = 2
                 ######calculating for white###############
                 sqrt_size_white = sqrt.sqrtSizeNormalized(the_std_of_AVG_of_AVG_normalized_R_white, the_std_of_AVG_of_AVG_normalized_G_white, the_std_of_AVG_of_AVG_normalized_B_white)
                 variance_white = sqrt_size_white**2
-                #print('white sqrt size: '+str(sqrt_size_white))
-                #print('white sqrt size*(3/2): '+str(sqrt_size_white*(3/2)))
-                #print ('white var: '+str(variance_white))
                 distance = Normalized()
                 distance_size_white = distance.distanceFromMean(normal_R, the_mean_of_AVG_of_AVG_normalized_R_white, normal_G, the_mean_of_AVG_of_AVG_normalized_G_white, normal_B, the_mean_of_AVG_of_AVG_normalized_B_white)
-                #print('distance size white: '+str(distance_size_white))
+
                 
                 ######calculating for black##########
                 sqrt_size_black = sqrt.sqrtSizeNormalized(the_std_of_AVG_of_AVG_normalized_R_black, the_std_of_AVG_of_AVG_normalized_G_black, the_std_of_AVG_of_AVG_normalized_B_black)
                 variance_black = sqrt_size_black**2
-                #print('sqrt size black:'+str(sqrt_size_black))
-                #print('sqrt size black*(3/2):'+str(sqrt_size_black*(3/2)))
-                #print ('black var: '+str(variance_black))
                 distance = Normalized()
                 distance_size_black = distance.distanceFromMean(normal_R, the_mean_of_AVG_of_AVG_normalized_R_black, normal_G, the_mean_of_AVG_of_AVG_normalized_G_black, normal_B, the_mean_of_AVG_of_AVG_normalized_B_black)
-                #print('distance size black: '+str(distance_size_black))
+
                 
                 ############################################################
                 c = distance_size_black/(sqrt_size_black*(size_of_sqrt))*100

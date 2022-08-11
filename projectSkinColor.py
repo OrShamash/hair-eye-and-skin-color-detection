@@ -23,18 +23,6 @@ class SkinColor:
         
         draw = ImageDraw.Draw(result)
         draw.polygon(listOfXYPoints[4], fill="black")
-        #result.save("C:\\Users\\orish\\Desktop\\face like project\output\\D.jpg")
-        
-        
-        #f = ImageEnhance.Contrast(result)
-        #d = f.enhance(0.5)
-        #d.save("C:\\Users\\orish\\Desktop\\face like project\output\\E.jpg")
-        
-        #g = result.convert('L')
-        #g.save(r"F:\\face like project\\face like project\\lightOrDark.jpg")
-        #dark_or_light = self.img_estim(g, 9.6)
-        #print(dark_or_light)   
-        
         pixel_values = list(result.getdata())
         
         R_list = []
@@ -49,7 +37,6 @@ class SkinColor:
                 R_list.append(R)
                 G_list.append(G)
                 B_list.append(B)
-        #print(R_list)
         sum_of_R = 0
         sum_of_G = 0
         sum_of_B = 0
@@ -98,13 +85,8 @@ class SkinColor:
         
         draw = ImageDraw.Draw(result)
         draw.polygon(listOfXYPoints[4], fill="black")
-
-        #f = ImageEnhance.Contrast(result)
-        #d = f.enhance(0.5)
-        #d.save("C:\\Users\\orish\\Desktop\\face like project\output\\E.jpg")
         
         g = result.convert('L')
-        #g.save(r"F:\\face like project\\face like project\\lightOrDark.jpg")
         dark_or_light = self.img_estim(g, 9.6)
         print(dark_or_light)
         

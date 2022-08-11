@@ -60,7 +60,6 @@ class DoesItNeedBrightnessChange:
                 listSkin = XandYskin.valuesOfXandYPoints(face_landmarks, faceNumberOfPointsList, new_image)
                 skin_color = SkinColor()
                 
-                
                 does_it = skin_color.doesItNeedBrightnessChange(listSkin, im_pil)
                 
             return does_it   
