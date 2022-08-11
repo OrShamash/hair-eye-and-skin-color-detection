@@ -14,6 +14,8 @@ The solution is statistical.
 
 To find the eyes color I created a dominate color algorithem (very simple one).
 
-as for the Unet model, it ok, after testing, it has 74% success (the mask result of 14 pictures out of 54 turned very poorly).
+as for the Unet model, is ok, after testing, it has 74% success (the mask result of 14 pictures out of 54 turned very poorly).
+
+The model will be uploaded soon.
 
 enjoy!
